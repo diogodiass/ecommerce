@@ -40,12 +40,8 @@ public function getValues(){
 
     return $this->values;
 
-}
-
-
+}   
 
 }
-
-
 
 ?>
