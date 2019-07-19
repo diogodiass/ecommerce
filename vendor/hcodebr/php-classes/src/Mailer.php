@@ -25,7 +25,8 @@ public function __construct($toAddress, $toName, $subject, $tplName, $data = arr
     
        $tpl = new Tpl;    
 
-       foreach ($data as $key => $value) {
+       foreach ($data as $key => $value) 
+       {
 
             $tpl->assign($key,$value);
         
@@ -80,7 +81,7 @@ public function send()
 {
 
     return $this->mail->send();
-
+    
 }
 
 

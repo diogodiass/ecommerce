@@ -29,7 +29,7 @@ class User extends Model {
 
         $data = $results[0];
         
-        if(password_verify($password, $data["despassword"])=== true)
+        if(password_verify($password, $data["despassword"]) === true)
         {
             $user = new User();
 
@@ -84,7 +84,7 @@ class User extends Model {
         array(
 			":desperson"=>utf8_decode($this->getdesperson()),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
 			":desemail"=>$this->getdesemail(),
 			":nrphone"=>$this->getnrphone(),
 			":inadmin"=>$this->getinadmin()
@@ -113,7 +113,7 @@ class User extends Model {
         ":iduser"=>$this->getiduser(),
         ":desperson"=>utf8_decode($this->getdesperson()),
         ":deslogin"=>$this->getdeslogin(),
-        ":despassword"=>$this->getdespassword(),
+        ":despassword"=>User::getPasswordHash($this->getdespassword()),
         ":desemail"=>$this->getdesemail(),
         ":nrphone"=>$this->getnrphone(),
         ":inadmin"=>$this->getinadmin()
@@ -242,7 +242,6 @@ public static function setForgotUSed($idrecovery)
 
 public function setPassword($password)
 {
-
     $sql = new Sql();
 
     $sql->query("UPDATE tb_users SET despassword = :password WHERE iduser = :iduser", array(
@@ -250,19 +249,13 @@ public function setPassword($password)
         ":iduser"=>$this->getiduser()
 
     ));
-    
 }
 
 public static function getPasswordHash($password)
-{
-
-    return password_hash($password, PASSWORD_DEFAULT,[
-        "cost"=>12
- ]);
-
-
-
-}
+	{
+        return password_hash($password, PASSWORD_DEFAULT,
+        ['cost'=>12]);
+	}
 
 
 }
