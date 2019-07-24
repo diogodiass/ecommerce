@@ -15,7 +15,18 @@ class Product extends Model {
         $sql = new Sql();
 
         return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
-    }       
+	}       
+	
+	public static function checkList($list)
+	{
+		foreach ($list as &$row)
+		{
+			$p = new Product();
+			$p->setData($row);
+			$row = $p->getValues();
+		}
+		return $list;
+	}
 
     public function save()
     {
@@ -80,7 +91,9 @@ class Product extends Model {
     public function getValues()
 	{
 		$this->checkPhoto();
+
 		$values = parent::getValues();
+
 		return $values;
 	}
 
@@ -104,14 +117,17 @@ class Product extends Model {
         
     }
 
-        $dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
+    $dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
 			"res" . DIRECTORY_SEPARATOR . 
 			"site" . DIRECTORY_SEPARATOR . 
 			"img" . DIRECTORY_SEPARATOR . 
 			"products" . DIRECTORY_SEPARATOR . 
 			$this->getidproduct() . ".jpg";
+
 		imagejpeg($image, $dist);
+
 		imagedestroy($image);
+
 		$this->checkPhoto();
 
 }
