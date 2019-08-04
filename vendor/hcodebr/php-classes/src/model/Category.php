@@ -125,10 +125,15 @@ class Category extends Model {
 			LIMIT $start, $itemsPerPage;
 		", [
 			':idcategory'=>$this->getidcategory()
+<<<<<<< HEAD
         ]);
         
         $resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
         
+=======
+		]);
+		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 		return [
 			'data'=>Product::checkList($results),
 			'total'=>(int)$resultTotal[0]["nrtotal"],

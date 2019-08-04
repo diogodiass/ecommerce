@@ -9,6 +9,7 @@ use \Hcode\Mailer;
 
 class User extends Model {
 
+<<<<<<< HEAD
     const SESSION   = "User";
     const SECRET    = "HcodePhp7_Secret";  
     const SECRET_IV = "HcodePhp7_Secret_IV";
@@ -56,6 +57,13 @@ class User extends Model {
         }
 
     }
+=======
+    const SESSION = "User";
+    const SECRET = "HcodePhp7_Secret";  
+    const SECRET_IV = "HcodePhp7_Secret_IV";
+    const SUBJECT_MATTER = "Redefinir Senha da Hcode Store";
+   
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 
     public static function login($login, $password){
 
@@ -91,10 +99,25 @@ class User extends Model {
 
     public static function verifyLogin($inadmin = true)
     {
+<<<<<<< HEAD
         if(User::checkLogin($inadmin)) 
         {
             header("Location: /admin/login");
             exit;
+=======
+        if(
+            !isset($_SESSION[User::SESSION])
+            ||
+            !$_SESSION[User::SESSION]
+            ||
+            !(int)$_SESSION[User::SESSION]["iduser"] > 0
+            ||
+            (bool)$_SESSION[User::SESSION]["inadmin"]!== $inadmin
+        ) {
+            header("Location: /admin/login");
+            exit;
+
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
         }
 
     }

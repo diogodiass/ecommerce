@@ -17,7 +17,11 @@ class Product extends Model {
         return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
 	}       
 	
+<<<<<<< HEAD
 		public static function checkList($list)
+=======
+	public static function checkList($list)
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 	{
 		foreach ($list as &$row)
 		{
@@ -132,6 +136,7 @@ class Product extends Model {
 
 }
 
+<<<<<<< HEAD
 public function getFromUrl($desurl)
 {
 
@@ -157,6 +162,8 @@ public function getCategories()
 	]);
 }
 
+=======
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 }
 
 ?>

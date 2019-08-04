@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php if(!class_exists('Rain\Tpl')){exit;}?>    
 <!DOCTYPE html>
+=======
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 <!--
     Hcode Store by hcode.com.br
 -->
@@ -73,6 +77,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div> <!-- End header area -->
 
     <div class="site-branding-area">
@@ -114,3 +119,6 @@
             </div>
         </div>
     </div> <!-- End mainmenu area -->
+=======
+    </div> <!-- End header area -->
+>>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
