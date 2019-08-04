@@ -3,10 +3,7 @@
 use Hcode\Page;
 use Hcode\Model\Product;	
 use Hcode\Model\Category;
-<<<<<<< HEAD
 use Hcode\Model\Cart;
-=======
->>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 
 $app->get("/", function(){
 
@@ -20,12 +17,8 @@ $app->get("/", function(){
 });
 
 
-<<<<<<< HEAD
 $app->get("/categories/:idcategory", function($idcategory)
 {
-=======
-$app->get("/categories/:idcategory", function($idcategory){
->>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 	
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 
@@ -38,24 +31,14 @@ $app->get("/categories/:idcategory", function($idcategory){
 	$pages = [];
 
 	for ($i=1; $i <= $pagination['pages']; $i++) { 
-<<<<<<< HEAD
-
-=======
->>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 		array_push($pages, [
 			'link'=>'/categories/'.$category->getidcategory().'?page='.$i,
 			'page'=>$i
 		]);
-<<<<<<< HEAD
 
 	}
 	$page = new Page();
 
-=======
-	}
-	$page = new Page();
-	
->>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 	$page->setTpl("category", [
 		'category'=>$category->getValues(),
 		'products'=>$pagination["data"],
@@ -63,7 +46,6 @@ $app->get("/categories/:idcategory", function($idcategory){
 	]);
 });
 
-<<<<<<< HEAD
 
 $app->get("/products/:desurl", function($desurl){
 
@@ -91,6 +73,4 @@ $app->get("/cart", function(){
 
 }); 
 
-=======
->>>>>>> 290e9c4f3df2887f0e7e104fbc9890def8c891b8
 ?>
